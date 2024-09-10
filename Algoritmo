@@ -1,0 +1,13 @@
+def algoritmo(cartas):
+    n = len(cartas)
+    for i in range(n):
+        trocou = False
+        for j in range(n-i-1):
+            if cartas[j] > cartas[j+1]:
+                aux = cartas [j]
+                cartas [j] = cartas [j+1]
+                cartas [j+1] = aux
+                trocou = True
+    return cartas
+    
+print(algoritmo ([5,8,10,4,50,-6]))
