@@ -1,0 +1,7 @@
+frase = "Pedro foi para casa."
+
+vogais = "aeiouAEIOU"
+
+for letra in frase:
+    if letra in vogais:
+        print (letra, end="")
