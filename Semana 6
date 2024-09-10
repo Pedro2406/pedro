@@ -1,0 +1,12 @@
+nome = "Maria"
+idade = 30
+print(f"Nome: {nome}, Idade: {idade}")
+
+# Dados para impressão
+nome = "Ana"
+idade = 29
+altura = 1.75
+
+# Imprimindo uma tabela formatada
+print(f"{'Nome':<10} {'Idade':<6} {'Altura':<8}")
+print(f"{nome:<10} {idade:<6} {altura:>7.2f}")
