@@ -1,0 +1,57 @@
+1) def gravar_nome_em_arquivo(nome_arquivo):
+    # Solicita o nome do usuário
+    nome = input("Por favor, informe seu nome: ")
+    
+    # Abre o arquivo em modo de escrita (isso cria o arquivo se não existir)
+    with open(nome_arquivo, 'w') as arquivo:
+        # Escreve o nome no arquivo
+        arquivo.write(nome + '\n')
+    
+    print(f"O nome foi gravado no arquivo {nome_arquivo}.")
+
+2) def imprimir_conteudo_arquivo():
+    # Solicita o nome do arquivo ao usuário
+    nome_arquivo = input("Por favor, informe o nome do arquivo a ser lido: ")
+    
+    try:
+        # Abre o arquivo em modo de leitura
+        with open(nome_arquivo, 'r') as arquivo:
+            # Lê o conteúdo e imprime
+            conteudo = arquivo.read()
+            print(conteudo)
+    except FileNotFoundError:
+        print("O arquivo informado não foi encontrado.")
+
+3) def copiar_conteudo_arquivo(arquivo_origem, arquivo_destino):
+    try:
+        # Abre o arquivo de origem em modo de leitura
+        with open(arquivo_origem, 'r') as origem:
+            conteudo = origem.read()
+        
+        # Abre o arquivo de destino em modo de escrita
+        with open(arquivo_destino, 'w') as destino:
+            destino.write(conteudo)
+        
+        print(f"O conteúdo foi copiado de {arquivo_origem} para {arquivo_destino}.")
+    except FileNotFoundError:
+        print("O arquivo de origem não foi encontrado.")
+
+4) def imprimir_nome_pelo_numero(nome_arquivo):
+    try:
+        # Solicita o número ao usuário
+        numero = int(input("Por favor, informe o número (linha) do nome desejado: "))
+        
+        # Abre o arquivo em modo de leitura
+        with open(nome_arquivo, 'r') as arquivo:
+            linhas = arquivo.readlines()
+            
+            # Verifica se o número está dentro do intervalo das linhas
+            if 1 <= numero <= len(linhas):
+                # Imprime o nome correspondente à linha
+                print(linhas[numero - 1].strip())
+            else:
+                print("Número fora do intervalo de linhas.")
+    except FileNotFoundError:
+        print("O arquivo informado não foi encontrado.")
+    except ValueError:
+        print("Entrada inválida. Por favor, informe um número inteiro.")
